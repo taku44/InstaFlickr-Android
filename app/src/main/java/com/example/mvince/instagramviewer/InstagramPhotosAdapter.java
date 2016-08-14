@@ -38,7 +38,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         }
 
         // Lookup the subview within the template
-        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgProfile);
+//        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgProfile);
         ImageView imgPhoto = (ImageView) convertView.findViewById(R.id.imgPhoto);
         TextView tvUsername = (TextView) convertView.findViewById(R.id.tvUsername);
         TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
@@ -97,12 +97,12 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {
         imgPhoto.getLayoutParams().height = displayMetrics.widthPixels;
 
         // Reset the images from the recycled view
-        imgProfile.setImageResource(0);
+//        imgProfile.setImageResource(0);
         imgPhoto.setImageResource(0);
 
         // Ask for the photo to be added to the imageview based on the photo url
         // Background: Send a network request to the url, download the image bytes, convert into bitmap, insert bitmap into the imageview
-        Picasso.with(getContext()).load(photo.profileUrl).into(imgProfile);
+//        Picasso.with(getContext()).load(photo.profileUrl).into(imgProfile);
         Picasso.with(getContext()).load(photo.imageUrl).placeholder(R.drawable.instagram_glyph_on_white).into(imgPhoto);
         // Return the view for that data item
         return convertView;

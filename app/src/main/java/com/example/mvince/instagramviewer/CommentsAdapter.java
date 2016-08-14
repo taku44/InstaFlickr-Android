@@ -36,7 +36,7 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
         }
 
         // Lookup the subview within the template
-        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgCommentProfile);
+//        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgCommentProfile);
         TextView tvComment = (TextView) convertView.findViewById(R.id.tvComment);
         TextView tvCommentTime = (TextView) convertView.findViewById(R.id.tvCommentTime);
 
@@ -44,11 +44,11 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
         tvCommentTime.setText(comment.getRelativeTime());
 
         // Reset the images from the recycled view
-        imgProfile.setImageResource(0);
+//        imgProfile.setImageResource(0);
 
         // Ask for the photo to be added to the imageview based on the photo url
         // Background: Send a network request to the url, download the image bytes, convert into bitmap, insert bitmap into the imageview
-        Picasso.with(getContext()).load(comment.profileUrl).into(imgProfile);
+//        Picasso.with(getContext()).load(comment.profileUrl).into(imgProfile);
 
         // Return the view for that data item
         return convertView;

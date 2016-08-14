@@ -4,7 +4,7 @@ package com.example.mvince.instagramviewer;
  * Created by mvince on 1/26/15.
  */
 public class Comment {
-    public String profileUrl;
+//    public String profileUrl;
     public String username;
     public String text;
     public String createdTime;
@@ -20,8 +20,11 @@ public class Comment {
             return String.format(Math.floor(elapsedSeconds / 60) == 1 ? "%.0f minute ago" : "%.0f minutes ago", Math.floor(elapsedSeconds / 60));
         } else if (elapsedSeconds < 86400) { // less than a day
             return String.format(Math.floor(elapsedSeconds / 3600) == 1 ? "%.0f hour ago" : "%.0f hours ago", Math.floor(elapsedSeconds / 3600));
-        } else {
+        } else if (elapsedSeconds < 31536000){  // less than a year (閏年は?とりあえず365日とする)
             return String.format(Math.floor(elapsedSeconds / 86400) == 1 ? "%.0f day ago" : "%.0f days ago", Math.floor(elapsedSeconds / 86400));
+        } else {                        // more than a year (閏年は?とりあえず365日とする)
+//            double elapsedSeconds = (double)elapsedSeconds;
+            return String.format(Math.floor(elapsedSeconds / 31536000) == 1 ? "%.0f year ago" : "%.0f years ago", Math.floor(elapsedSeconds / 31536000));
         }
     }
 }
