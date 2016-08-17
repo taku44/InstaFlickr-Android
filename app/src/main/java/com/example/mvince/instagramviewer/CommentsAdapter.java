@@ -21,27 +21,35 @@ public class CommentsAdapter extends ArrayAdapter<Comment> {
         super(context, android.R.layout.simple_list_item_1, comments);
     }
 
-    // getView method (int position)
-    // Default, takes the model (InstagramPhoto) toString()
+    class ViewHolder{   //ViewHolderパターン (Custom Viewを使うパターンもある  http://qiita.com/mofumofu3n/items/28f8be64d39b20e69552)    //このクラスはstaticにするべき？？
+        TextView tvComment;
+        TextView tvCommentTime;
+    }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Take the data source at position (e.g. 0)
         // Get the data item
         Comment comment = getItem(position);
+        final ViewHolder holder;
 
         // Check if we are using a recycled view
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_comment, parent, false);
+
+            holder = new ViewHolder();
+//        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgCommentProfile);
+            holder.tvComment = (TextView) convertView.findViewById(R.id.tvComment);
+            holder.tvCommentTime = (TextView) convertView.findViewById(R.id.tvCommentTime);
+
+            convertView.setTag(holder);
+        }else{
+            holder = (ViewHolder)convertView.getTag();
         }
 
-        // Lookup the subview within the template
-//        ImageView imgProfile = (ImageView) convertView.findViewById(R.id.imgCommentProfile);
-        TextView tvComment = (TextView) convertView.findViewById(R.id.tvComment);
-        TextView tvCommentTime = (TextView) convertView.findViewById(R.id.tvCommentTime);
 
-        tvComment.setText(Html.fromHtml("<font color='#3f729b'><b>" + comment.username + "</b></font> " + comment.text));
-        tvCommentTime.setText(comment.getRelativeTime());
+        holder.tvComment.setText(Html.fromHtml("<font color='#3f729b'><b>" + comment.username + "</b></font> " + comment.text));
+        holder.tvCommentTime.setText(comment.getRelativeTime());
 
         // Reset the images from the recycled view
 //        imgProfile.setImageResource(0);
