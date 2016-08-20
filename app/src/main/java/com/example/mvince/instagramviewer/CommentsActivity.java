@@ -45,13 +45,15 @@ public class CommentsActivity extends ActionBarActivity implements    //この�
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if(id == android.R.id.home){   // 左上の⇦戻るボタンをタップされた時
+            finish();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void fetchComments() {
-
         comments = new ArrayList<Comment>(); // initialize arraylist
         // Create adapter bind it to the data in arraylist
         aComments = new CommentsAdapter(this, comments);

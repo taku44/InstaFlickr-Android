@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources>//このstrings.xmlは@string/~　により外部から文字列参照できる(iOSの.stringファイルのようなもの)
 
     <string name="app_name">InstagramViewer</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="popular_photos_caption">Popular on Instagram</string>
+    <string name="photos_caption">InstaFlickr</string>
     <string name="username_default_text">username</string>
     <string name="time_default_text">time</string>
     <string name="like_default_text">likes</string>
@@ -14,5 +14,9 @@
     <string name="view_all_comments_default_text">view all comments</string>
     <string name="title_activity_comments">CommentsActivity</string>
     <string name="comments_caption">Comments</string>
-
+    <string name="search">Search</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="profile">Profile</string>
+    <string name="notification">Notification</string>
 </resources>

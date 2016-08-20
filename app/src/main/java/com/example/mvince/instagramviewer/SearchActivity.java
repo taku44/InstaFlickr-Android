@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 
 import android.support.v4.view.MenuItemCompat;
@@ -24,6 +25,7 @@ public class SearchActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {   //Activityクラスで定義されている、「onCreateOptionsMenu」をオーバーライドすることによって、メニューを作成します
+
         // Set Menu
         getMenuInflater().inflate(R.menu.menu_search, menu);  //menu_search.xmlを読み込む
 
@@ -36,6 +38,7 @@ public class SearchActivity extends ActionBarActivity {
         // whether display Submit Button
         searchView.setSubmitButtonEnabled(false);
 
+        // メニューアイテムを追加します
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {   //匿名のインナークラス
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -46,8 +49,8 @@ public class SearchActivity extends ActionBarActivity {
                     intent.putExtra("queryString", query);         //画面遷移時の値渡し
                     getApplicationContext().startActivity(intent);
                 }
-
                 return true;
+
             }
 
             @Override
@@ -56,8 +59,6 @@ public class SearchActivity extends ActionBarActivity {
                 return false;
             }
         });
-
-        // メニューアイテムを追加します
 //        menu.add(Menu.NONE, , Menu.NONE, "Menu1");
 //        menu.add(Menu.NONE, MENU_ID_MENU2, Menu.NONE, "Menu2");
 

@@ -83,7 +83,7 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {    //
                     Intent intent = new Intent(getContext(), CommentsActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  //起動されるAcitivityより前のスタックのAcitvityをクリアして起動させる http://blog.choilabo.com/20150216/505
                     InstagramPhoto ip = getItem(position);
-                    intent.putExtra("id", ip.id);         //画面遷移時の値渡し
+                    intent.putExtra("id", ip.id);         //画面遷移時の値渡し   Intent のインスタンスは内部的に Bundle を持っており、intent.putExtra() は実際はその内部の Bundle に対し値を設定しているだけである
                     getContext().startActivity(intent);
                 }
             });
@@ -130,3 +130,4 @@ public class InstagramPhotosAdapter extends ArrayAdapter<InstagramPhoto> {    //
         return false;
     }
 }
+
