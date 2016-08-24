@@ -133,7 +133,7 @@ public class MainActivity extends ActionBarActivity implements TabHost.OnTabChan
         /*if(mLastTabId != tabId){
             FragmentTransaction fragmentTransaction
                     = getSupportFragmentManager().beginTransaction();
-            if("tab1" == tabId){
+            if("tab1" == tabId){                        //Stringの同値判断はequalsを使うべきでは??
                 fragmentTransaction
                         .replace(R.id.realtabcontent, new Tab1Fragment());
             }else if("tab2" == tabId){

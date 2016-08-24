@@ -23,7 +23,7 @@
         </activity>
         <activity
             android:name=".PhotosActivity"
-            android:label="@string/photos_caption"
+            android:label="Photos"
             android:parentActivityName=".MainActivity2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name=".MainActivity2"
-            android:label="@string/title_activity_main"
+            android:label="InstaFlickr"
             android:launchMode="singleTop">
             <intent-filter>
                 //このactivityの起動時に何をするか設定
@@ -49,6 +49,10 @@
                 //このAcitivityが呼ばれた際に、デバイスのホーム画面にランチャーアイコンを作成させる
             </intent-filter>
         </activity>
+        <service
+            android:name=".MyService4Service"
+            android:label="timeService">
+        </service>
     </application>
 
 </manifest>

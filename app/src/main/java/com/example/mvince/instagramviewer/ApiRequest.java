@@ -27,7 +27,7 @@ public class ApiRequest {
     final static String mainUrl="https://api.flickr.com/services/rest/";
 
     public interface GetCommentsListener {
-        void onGetCommentsSuccess(JSONArray commentsJSONArray);
+        void onGetCommentsSuccess(JSONArray commentsJSONArray);  //実はこれは自動でpublic abstractである。（インターフェイスのメソッドは全てそうなる）
         void onGetCommentsFailure();
     }
 
@@ -65,7 +65,7 @@ public class ApiRequest {
         );
     }
 
-    //ポリモーフィズム
+    //ポリモーフィズム(オーバーロード)
     private static void handleResponse(JSONObject response, GetCommentsListener listener) {
             if (response != null && response.length() > 0 && !response.equals("null")) {
                 /*Gson gson = new Gson();                    //Gson使う？？

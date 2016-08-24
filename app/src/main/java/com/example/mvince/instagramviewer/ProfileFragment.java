@@ -27,7 +27,7 @@ public class ProfileFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
 
         // 実際のリストアイテム代入
-        String[] category = {"ユーザー名:MyName", "メールアドレス:yahoo.co.jp", "年齢:20", "職業:SE"};
+        String[] category = {"ユーザー名:MyName", "メールアドレス:yahoo.co.jp", "年齢:20", "タップしてダイアログ表示"};
         ArrayAdapter<String> adapter = (new ArrayAdapter<String>(getActivity(), R.layout.row, category){
             /**
              * GetViewをオーバーライドして背景色を交互に変える
@@ -35,7 +35,7 @@ public class ProfileFragment extends ListFragment {
             @Override
             public View getView(int position, View convertView, ViewGroup parent){
                 View view = super.getView(position, convertView, parent);
-                if (position == 0){
+                if (position == 3){
                     view.setBackgroundColor(Color.YELLOW);
                 }else{
                     //view.setBackgroundColor();
@@ -61,13 +61,26 @@ public class ProfileFragment extends ListFragment {
                 intent.putExtra("id", position);
                 startActivity(intent);*/
 
-
                 //プロフィール設定変更ダイアログを表示？
                 Log.d("lvタップされた","id="+id);
+                if(id == 3){
 
-
+                    //非同期AsyncTaskをやってみる
+                    new DialogAsyncTask(getActivity()).execute("Param1");
+                }
             }
         });
     }
 
+    //このメソッドのデフォルトの実装では、EditText ウィジェット内のテキストまたは ListView のスクロール位置などのアクティビティのビュー階層の状態に関する情報が保存されます。
+    @Override
+    //アクティビティの追加の状態情報を保存するには、 onSaveInstanceState() を実装し、Bundle オブジェクトにキー値のペアを追加する必要があります。
+    public void onSaveInstanceState(Bundle saveInstanceState) {
+        super.onSaveInstanceState(saveInstanceState);  //必要
+//        saveInstanceState.put
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState) {     //復元対象の保存済みの状態がある場合のみ、呼ばれる(画面を横にした時などで)
+//        super.onRestoreInstanceState(savedInstanceState);   //必要
+    }
 }

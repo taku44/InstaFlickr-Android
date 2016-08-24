@@ -26,6 +26,7 @@ package com.example.mvince.instagramviewer;
         import java.util.ArrayList;
 
 // 大量のデータの復元、ネットワーク接続の再構築、その他負荷のかかる実行が必要になる場合、Fragmentを保持するやり方で再初期化のコストを削減できる
+//このフラグメントにはレイアウトファイルは不要(ユーザーに見せるものではない)
 public class RetainedFragment extends Fragment {
 
     // data object we want to retain

@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class PhotosActivity extends ActionBarActivity implements ApiRequest.GetPhotosListener,ApiRequest.GetFavoritesListener ,ApiRequest.GetFirstCommentsListener{
-    public static final String API_KEY = "86997f23273f5a518b027e2c8c019b0f";
+    public static final String API_KEY = "86997f23273f5a518b027e2c8c019b0f";  //不変は制限なく共有できる (スレッドセーフなため)
     private ArrayList<InstagramPhoto> photos;
     private InstagramPhotosAdapter aPhotos;
     private SwipeRefreshLayout swipeContainer;

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity2" >-->
+
+<com.example.mvince.instagramviewer.TileLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity2" >
+
+    <!--<com.example.mvince.TileItemView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:contentDescription="kk"
+        custom:src="@drawable/ic_launcher"
+        custom:subtitle="android23"
+        custom:title="y" />
+
+    <com.example.mvince.TileItemView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:contentDescription="kkk"
+        custom:src="@drawable/ic_launcher"
+        custom:subtitle="android30"
+        custom:title="yy" />
+
+    <com.example.mvince.TileItemView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:contentDescription="kkkk"
+        custom:src="@drawable/ic_launcher"
+        custom:subtitle="android10"
+        custom:title="yyy" />
+
+    <com.example.mvince.TileItemView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1dp"
+        android:contentDescription="kkkkk"
+        custom:src="@drawable/ic_launcher"
+        custom:subtitle="golang"
+        custom:title="yyyy" />-->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="k"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="kk"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="kkk"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="kkkk"/>
+
+</com.example.mvince.instagramviewer.TileLayout>
+
+<!--</RelativeLayout>-->

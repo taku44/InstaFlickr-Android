@@ -53,4 +53,22 @@ tools:context=".MainActivity2" >
 
     </android.support.v4.app.FragmentTabHost>-->
 
+    <!--親との位置を決める-->
+    <com.example.mvince.instagramviewer.MyCustomView
+        android:id="@+id/myCustomView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+    <!--//対象のviewとの位置を決める-->
+        <!--android:layout_toRightOf="@id/myCustomView2"
+        android:layout_alignTop="@id/myCustomView2"-->
 </RelativeLayout>

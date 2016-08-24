@@ -17,19 +17,33 @@
         import android.view.LayoutInflater;
         import android.view.Menu;
         import android.view.View;
+        import android.content.Intent;
+        import android.content.IntentFilter;
         import android.view.ViewGroup;
         import android.widget.Button;
         import android.widget.TabHost;
         import android.widget.TabHost.TabSpec;
         import android.widget.TextView;
 
-public class MainActivity2 extends FragmentActivity {
+public class MainActivity2 extends FragmentActivity{
+
+    IntentFilter intentFilter;
+    MyService4Receiver receiver;
+    Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main2);
+
+        // レシーバーの登録
+        receiver = new MyService4Receiver();
+        receiver.activity = this;
+        intentFilter = new IntentFilter();
+        intentFilter.addAction(MyService4Service.actionName);
+        registerReceiver(receiver, intentFilter);
+
 
         //FragmentTabHostを使うパターン
         /*FragmentTabHost host = (FragmentTabHost) findViewById(android.R.id.tabhost);
@@ -64,7 +78,29 @@ public class MainActivity2 extends FragmentActivity {
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager()));
     }
 
-    public static class SampleFragment extends Fragment {
+    public void onResume() {
+        super.onResume();
+        Log.i("タグ", "onResume()");
+
+        intent = new Intent(getBaseContext(), MyService4Service.class);
+        startService(intent);
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("タグ", "onDestroy()");
+
+        unregisterReceiver(receiver);//レシーバー登録解除
+
+        if (intent != null)
+        {
+            stopService(intent);//サービスの停止
+        }
+        intent = null;
+
+    }
+
+    /*public static class SampleFragment extends Fragment {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -75,11 +111,9 @@ public class MainActivity2 extends FragmentActivity {
 
             return textView;
         }
-    }
+    }*/
 
-    /**
-     * 以下、iewPagerの動作を作成するアダプター
-     */
+    //以下、iewPagerの動作を作成するアダプター  このようにJavadoc フォーマットでコメントを記述しておくと、javadoc コマンドを使ってドキュメントファイルを生成できます（一般的に HTML 形式で出力します）
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
         final int PAGE_COUNT = 3;
 
@@ -94,13 +128,13 @@ public class MainActivity2 extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0){
+            if (position == 0) {
                 ProfileFragment fragment1 = new ProfileFragment();
                 return fragment1;
-            } else if (position == 1){
+            } else if (position == 1) {
                 SearchFragment fragment2 = new SearchFragment();
                 return fragment2;
-            } else if (position == 2){
+            } else if (position == 2) {
                 NotificationFragment fragment3 = new NotificationFragment();
                 return fragment3;
             }
@@ -120,8 +154,18 @@ public class MainActivity2 extends FragmentActivity {
             return null;
         }
     }
-}
 
+    //このメソッドのデフォルトの実装では、EditText ウィジェット内のテキストまたは ListView のスクロール位置などのアクティビティのビュー階層の状態に関する情報が保存されます。
+    @Override
+    //アクティビティの追加の状態情報を保存するには、 onSaveInstanceState() を実装し、Bundle オブジェクトにキー値のペアを追加する必要があります。
+    public void onSaveInstanceState(Bundle saveInstanceState) {
+        super.onSaveInstanceState(saveInstanceState);  //必要
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState) {     //復元対象の保存済みの状態がある場合のみ、呼ばれる(画面を横にした時などで)
+        super.onRestoreInstanceState(savedInstanceState);   //必要
+    }
+}
 
 
 
